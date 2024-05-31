@@ -1,37 +1,37 @@
 import java.util.Scanner;
 
-public class VerificacaoChequeEspecial{
+public class VerificacaoChequeEspecial {
 
-    public static void main(String[] args){
+   public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+       Scanner scanner = new Scanner(System.in);
 
-        System.out.println("digite seu saldo: ");
-        double saldo = scanner.nextDouble();
-        System.out.println("digite o valor do saque:");
-        double saque = scanner.nextDouble();
+       double saldo = scanner.nextDouble();
 
-        double cheque_especial = 500;
-        double limite_total = (saldo + cheque_especial);
+       double saque = scanner.nextDouble();
 
-        if (saque > saldo){
+       double limiteChequeEspecial = 500;
 
-            double diferenca_saque = (saque - saldo);
-            if (diferenca_saque <= cheque_especial){
-            cheque_especial -= diferenca_saque;
 
-            System.out.println("Transação realizada com sucesso utilizando o cheque especial.");
-            System.out.println("Saldo Cheque Especial: " + "R$ " + cheque_especial);
-            }else{
-                System.out.println("Transação não realizada. Limite do cheque especial excedido.");}
-   
-        }else if(saque > limite_total){
-            
-            System.out.println("Transação não realizada. Limite do cheque especial excedido.");
+      if (saque <= saldo) {
 
-        }else{
-            System.out.println("Transação realizada com sucesso.");
-        } 
-       
-    }
+           System.out.println("Transacao realizada com sucesso.");
+
+       } else if (saque <= saldo + limiteChequeEspecial) {
+
+           double saldoRestante = saldo - saque;
+
+           System.out.println("Transacao realizada com sucesso utilizando o cheque especial. ");
+
+       } else {
+
+           System.out.println("Transacao nao realizada. Limite do cheque especial excedido.");
+
+       }
+
+
+       scanner.close();
+
+   }
+
 }
